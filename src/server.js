@@ -2,7 +2,7 @@
 const express = require('express');
 const server = express();
 
-const { pageLanding, pageStudy, pageGiveClasses, saveClasses } = require('./pages')
+const { pageLanding, pageAbout, pageStudy, pageGiveClasses, saveClasses } = require('./pages')
 
 // Configurar nunjucks (template engine)
 const nunjucks = require('nunjucks');
@@ -19,8 +19,10 @@ server
 .use(express.static("public"))
 // Rotas da aplicação
 .get("/", pageLanding)
+.get("/about", pageAbout)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses)
 .post("/save-classes", saveClasses)
-// star do servidor
+
+// start do servidor
 .listen(5500);
